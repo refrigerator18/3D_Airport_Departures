@@ -1,21 +1,14 @@
-*
-{
-    margin: 0;
-    padding: 0;
+.text {
+    position: absolute;
+    top: 12%;
+    left: 5%;
 }
 
-html,
-body
-{
-    overflow: hidden;
-}
-
-.webgl
-{
-    position: fixed;
-    top: 0;
-    left: 0;
-    outline: none;
+.title {
+    position: inherit;
+    color:#faf1bc;
+    font-family: 'Raleway', sans-serif;
+    font-size: 60px;
 }
 
 

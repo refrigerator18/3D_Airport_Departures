@@ -1,57 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>3D Flight Map</title>
-        <style> body { margin: 0; } </style>
+      <title>3D Flight Map</title>
+      <style> body { margin: 0; } </style>
+    
+      <!-- GLOBE -->
+      <script src="//unpkg.com/d3"></script>
+      <script src="//unpkg.com/polished@3.5.2/dist/polished.js"></script>
+      <script src="//unpkg.com/globe.gl"></script>
+
+      <!-- FONTS -->
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap" rel="stylesheet">
+
+      <!-- AIRPORT ICAO AND COORDS -->
+      <script src="airport_data.js" ></script>
+    </head>
       
-        <script src="//unpkg.com/d3"></script>
-        <script src="//unpkg.com/polished@3.5.2/dist/polished.js"></script>
-      
-        <script src="//unpkg.com/globe.gl"></script>
-        <!--<script src="../../dist/globe.gl.js"></script>-->
-      </head>
-      
-      <body>
-        <div id="globeViz"></div>
-      
-        <script>
-          const catColor = d3.scaleOrdinal(d3.schemeCategory10.map(col => polished.transparentize(0.2, col)));
-      
-          const getAlt = d => d.elevation * 5e-5;
-      
-          const getTooltip = d => `
-            <div style="text-align: center">
-              <div><b>${d.name}</b>, ${d.country}</div>
-              <div>(${d.type})</div>
-              <div>Elevation: <em>${d.elevation}</em>m</div>
-            </div>
-          `;
-      
-          const myGlobe = Globe()
-            .globeImageUrl('//unpkg.com/three-globe/example/img/earth-night.jpg')
-            .backgroundImageUrl('//unpkg.com/three-globe/example/img/night-sky.png')
-            .pointLat('lat')
-            .pointLng('lon')
-            .pointAltitude(getAlt)
-            .pointRadius(0.12)
-            .pointColor(d => catColor(d.type))
-            .pointLabel(getTooltip)
-            .labelLat('lat')
-            .labelLng('lon')
-            .labelAltitude(d => getAlt(d) + 1e-6)
-            .labelDotRadius(0.12)
-            .labelDotOrientation(() => 'bottom')
-            .labelColor(d => catColor(d.type))
-            .labelText('name')
-            .labelSize(0.15)
-            .labelResolution(1)
-            .labelLabel(getTooltip)
-            (document.getElementById('globeViz'));
-      
-          fetch('../datasets/world_volcanoes.json').then(res => res.json()).then(volcanoes => {
-            myGlobe.pointsData(volcanoes)
-              .labelsData(volcanoes);
-          });
-      
-        </script>
+    <body style="overflow-x: hidden;">
+      <!-- GLOBE -->
+      <div id="globeViz"></div>
+      <!-- FLIGHT DATA AND COORDS -->
+      <!-- <script src="openskyData.js"></script> -->
+      <script src="globe.js"></script>
+
+      <!-- TEXT -->
+      <div class="text">
+        <div class = "title">Live Flight Departures</div>
+        <div class = "input">
+          <script src="btnSubmit.js"></script>
+          <form id="form1">
+            <input type="text" id="fICAO" name="fICAO" maxlength="4" placeholder="Enter 4-digit ICAO Code" oninput="let p = this.selectionStart; this.value = this.value.toUpperCase();this.setSelectionRange(p, p);" >
+          </form>
+        </div>
+        <button type="button" id ="bICAO" form ="form1" value="submit" onclick="resetGlobe()">Submit</button>
+        <div class="info">
+            <a href="https://en.wikipedia.org/wiki/List_of_airports_by_ICAO_code:_A" target=”_blank”>https://en.wikipedia.org/wiki/List_of_airports_by_ICAO_code:_A</a><br><br>
+            Examples: <br>
+            &emsp;KMIA - Miami International <br>
+            &emsp;EGLL - London Heathrow <br>
+            &emsp;RJTT - Tokyo International <br>
+            &emsp;VHHH - Hong Kong International
+        </div>
+
+
+      </div>
+
+          
+
       </body>
