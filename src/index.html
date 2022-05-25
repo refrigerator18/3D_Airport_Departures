@@ -14,27 +14,21 @@
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
       <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap" rel="stylesheet">
 
-      <!-- AIRPORT ICAO AND COORDS -->
-      <script src="airport_data.js" ></script>
     </head>
       
     <body style="overflow-x: hidden;">
       <!-- GLOBE -->
       <div id="globeViz"></div>
-      <!-- FLIGHT DATA AND COORDS -->
-      <!-- <script src="openskyData.js"></script> -->
-      <script src="globe.js"></script>
 
       <!-- TEXT -->
       <div class="text">
         <div class = "title">Live Flight Departures</div>
         <div class = "input">
-          <script src="btnSubmit.js"></script>
           <form id="form1">
             <input type="text" id="fICAO" name="fICAO" maxlength="4" placeholder="Enter 4-digit ICAO Code" oninput="let p = this.selectionStart; this.value = this.value.toUpperCase();this.setSelectionRange(p, p);" >
           </form>
         </div>
-        <button type="button" id ="bICAO" form ="form1" value="submit" onclick="resetGlobe()">Submit</button>
+        <button type="button" id ="bICAO" form ="form1" value="submit">Submit</button>
         <div class="info">
             <a href="https://en.wikipedia.org/wiki/List_of_airports_by_ICAO_code:_A" target=”_blank”>https://en.wikipedia.org/wiki/List_of_airports_by_ICAO_code:_A</a><br><br>
             Examples: <br>
@@ -46,7 +40,8 @@
 
 
       </div>
-
-          
+      <!-- AIRPORT ICAO AND COORDS -->
+      <script src="./airport_data.js" ></script>
+      <script src="./globe.js"></script>
 
       </body>

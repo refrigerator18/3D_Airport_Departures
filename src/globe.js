@@ -32,9 +32,9 @@ function getData(callback, ICAO){
         var data = JSON.parse(this.response)
         if (request.status >= 200 && request.status < 400) {
         data.forEach(flight => {
-            if (flight.estArrivalAirport != null) {
-                if (DATA[flight.estArrivalAirport] != null)
-                    routes.push({startLat: depLat, startLng: depLng, endLat: DATA[flight.estArrivalAirport].lat, endLng: DATA[flight.estArrivalAirport].long})
+            if (flight.estArrivalAirport != null && flight.estArrivalAirport != ICAO && DATA[flight.estArrivalAirport] != null) {
+                arrivalAirport = DATA[flight.estArrivalAirport]
+                routes.push({startLat: depLat, startLng: depLng, endLat: arrivalAirport.lat, endLng: arrivalAirport.long})
             }
         })
         } else {
@@ -53,6 +53,15 @@ function setRoutes(routes, ICAO){
     globe.arcColor(['#9400D3','#FF7F50'])
     globe.arcsData(routes);
 }
+
+// Changing Airports
+function btnSubmit() {
+    getData(callback = setRoutes, ICAO=document.getElementById('fICAO').value);
+}
+var el = document.getElementById('bICAO');
+el.addEventListener('click', btnSubmit)
+
+
 
 
 

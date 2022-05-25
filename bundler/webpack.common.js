@@ -4,7 +4,7 @@ const MiniCSSExtractPlugin = require('mini-css-extract-plugin')
 const path = require('path')
 
 module.exports = {
-    entry: path.resolve(__dirname, '../src/script.js'),
+    entry: [path.resolve(__dirname, '../src/script.js'), path.resolve(__dirname, '../src/airport_data.js'), path.resolve(__dirname, '../src/globe.js')],
     output:
     {
         hashFunction: 'xxhash64',
