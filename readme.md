@@ -1,7 +1,11 @@
 # [flightmap.live](https://flightmap.live/)
-## About
-This project is a realtime visualization of the last 48 hours of airplane departures on a 3D interactive globe. This project was made using WebGL (ThreeJS), Javascript, HTML/CSS, airport data, and live airplane data via an API.
 
+
+https://user-images.githubusercontent.com/57844356/171966558-74e3eb3d-9c1e-4e39-8758-a410fe3500cd.mov
+
+
+## About
+A realtime visualization of the last 48 hours of airplane departures on a 3D interactive globe. This project was made using WebGL (ThreeJS), Javascript, HTML/CSS, airport data, and live airplane data via an API.
 
 * Airplane information is obtained via ADS-B and Mode S data collected by research institutions and local users on the OpenSky Network (https://opensky-network.org/)
 * Airport data (ICAO, City, Country, Coordinates) was parsed from the Global Airport Database (https://www.partow.net/miscellaneous/airportdatabase/)
@@ -84,6 +88,8 @@ function showRoute(arc, prevarc){
 ```
 
 And that's it! There are more minutiae such as styling the globe/wesbite, parsing the data, offsets, attaching event listeners etc., but that can all be explored in the /src/ folder
+
+
 
 
 
