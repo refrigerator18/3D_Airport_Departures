@@ -1,6 +1,6 @@
-# Live 3D Flight Map
+# [flightmap.live](https://flightmap.live/)
 ## About
-This projects visualizes the last 48 hours of airplane departures on a 3D interactive globe. This project was made with WebGL (ThreeJS), Javascript, HTML/CSS, airport data, and live airplane data via an API.
+This project is a realtime visualization of the last 48 hours of airplane departures on a 3D interactive globe. This project was made using WebGL (ThreeJS), Javascript, HTML/CSS, airport data, and live airplane data via an API.
 
 
 * Airplane information is obtained via ADS-B and Mode S data collected by research institutions and local users on the OpenSky Network (https://opensky-network.org/)
@@ -103,3 +103,6 @@ npm run dev
 # Build for production in the dist/ directory
 npm run build
 ```
+
+## License
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
