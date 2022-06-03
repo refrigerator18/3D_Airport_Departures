@@ -1,4 +1,4 @@
-# Live 3D Flight Departures Map
+# Live 3D Flight Map
 ## About
 This projects visualizes the last 48 hours of airplane departures on a 3D interactive globe. This project was made with WebGL (ThreeJS), Javascript, HTML/CSS, airport data, and live airplane data via an API.
 
