@@ -7,7 +7,7 @@ This projects visualizes the last 48 hours of airplane departures on a 3D intera
 * Airport data (ICAO, City, Country, Coordinates) was parsed from the Global Airport Database (https://www.partow.net/miscellaneous/airportdatabase/)
 
 ## Data Collection 
-A vital step in this project was finding complete airport data, so that the visualization would be accurate. I downloaded the Global Airport Database and wrote a little Python script to parse the data, convert it onto a CSV, and get rid of any data that would cause issues
+For complete airport data, I downloaded the Global Airport Database and wrote a little Python script to parse the data, convert it onto a CSV, and get rid of any data that would cause issues
 
 ``` python
 import pandas as pd
@@ -27,7 +27,11 @@ df.to_csv('aiport_coords.csv', index=False)
 The next step in data collection was finding a live airplane API (preferably free) that had the information I needed, which was departure airport, arrival airport, ICAO code, and to be able to filter flights by time frame. For this I chose the OpenSky Network Live API (https://openskynetwork.github.io/opensky-api/)
 
 ## Code Walkthrough
-In this section I will focus more on the main logic of the code, more than the styling of the globe.
+Say the user enters KSFO (San Fransisco International) and clicks "View Flights"...
+
+The first step is finding the right time frame for the API call, the function 
+
+
 
 As soon as a user searches for an airport, the getTimes() function,
 
