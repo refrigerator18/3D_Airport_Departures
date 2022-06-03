@@ -1,7 +1,35 @@
+.nav_wrapper {
+    font-family: 'Raleway', sans-serif;
+    position: absolute;
+    display:grid;
+    grid-template-columns: 1fr;
+    font-size: 18px;
+    z-index: 1;
+
+}
+#about {
+    margin-left:30px;
+    margin-top:20px;
+    width: 100px;
+    color: #faf1bc;
+    text-decoration: none;
+    padding-bottom: 5px;
+    border-bottom:1.5px solid #faf1bc;
+    display: flex;
+    justify-content: center;
+}
+#githubLogo{
+    width:20px;
+    height:20px;
+}
+
+#readme{
+    padding-left: 7px;
+}
 .text {
     position: absolute;
-    top: 12%;
-    left: 5%;
+    top: 15%;
+    left: 7%;
     width: 400px;
 
     /* display:grid;
@@ -25,27 +53,41 @@
 }
 
 .input{
-    width:300px;
+    width:240px;
     display:inline-block;
     padding-top:200px;
 }
 
 #fICAO{
+    padding-bottom: 8px;
     width:100%;
     border: none;
     color:whitesmoke;
     border-bottom: 1px solid whitesmoke;
     background-color: transparent;
-    font-size:15px;
+    font-size:16px;
 }
 
-input:focus{
+#fICAO:focus{
     outline: none;
-    border-bottom: 1px solid #F6BE00;
+    border-bottom: 1px solid #bb7796;
 }
 #bICAO{
     margin-left:30px;
-    display:inline-block;
+    display: inline-block;
+    outline: 0;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    border-radius: 4px;
+    font-size: 13px;
+    height: 30px;
+    background-color: whitesmoke;
+    color: #0e0e10;
+    padding: 0px 20px;
+}
+#bICAO.hover{
+    background-color: #0000001a;
 }
 
 .info{
@@ -59,5 +101,16 @@ input:focus{
     color:whitesmoke;
 }
 
+a:link {
+    color: whitesmoke;
+  }
+  
+a:visited {
+color: whitesmoke;
+}
+
+#tip{
+    font-size:11px;
+}
 
 /*# sourceMappingURL=main.css.map*/
