@@ -27,9 +27,23 @@ df.to_csv('aiport_coords.csv', index=False)
 The next step in data collection was finding a live airplane API (preferably free) that had the information I needed, which was departure airport, arrival airport, ICAO code, and to be able to filter flights by time frame. For this I chose the OpenSky Network Live API (https://openskynetwork.github.io/opensky-api/)
 
 ## Code Walkthrough
+* The functions below are seen in /src/globe.js
+
 Say the user enters KSFO (San Fransisco International) and clicks "View Flights"...
 
-The first step is finding the right time frame for the API call, the function 
+The first step is calling the getTimes() function for finding the right time frame for the API call. This function simply returns the current time, and the current time - 48 hrs, all in Unix time (seconds since epoch)
+
+``` js
+function getTimes(){
+    currentTime = Math.floor(Date.now() / 1000)
+    prevTime = currentTime - (2 * 24 * 60 * 60)
+    return [String(prevTime), String(currentTime)]
+}
+
+```
+
+The next step is getting San Fransico International's JSON departure data from the OpenSky network in that time frame (getData()). The request to OpenSky only returns the ICAO code for the arrival destination of each flight. That's when can search through our airport_data.js file to find the corresponding coordinates, city and country. Finally, this function stores each flight's data in an array called routes. The array contains each flights departure/arrival coordinates and the arrival airport's name, city and country.
+
 
 
 
