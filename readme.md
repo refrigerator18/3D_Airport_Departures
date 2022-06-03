@@ -7,7 +7,7 @@ This projects visualizes the last 48 hours of airplane departures on a 3D intera
 * Airport data (ICAO, City, Country, Coordinates) was parsed from the Global Airport Database (https://www.partow.net/miscellaneous/airportdatabase/)
 
 ## Data Collection 
-For complete airport data, I downloaded the Global Airport Database and wrote a little Python script to parse the data, convert it onto a CSV, and get rid of any data that would cause issues
+For complete airport data, I downloaded the Global Airport Database and wrote a little Python script to parse the data, convert it onto a CSV, and get rid of any data that would cause issues.
 
 ``` python
 import pandas as pd
@@ -23,6 +23,17 @@ df = df[df['lat'] !=0]
 df.to_csv('aiport_coords.csv', index=False)
 
 ``` 
+This CSV is then simply converted into a JavaScript hashmap as shown below (airport_data.js)
+``` js
+  },
+  "KSFO": {
+    "name": "SAN FRANCISCO INTERNATIONAL",
+    "city": "SAN FRANCISCO",
+    "country": "USA",
+    "lat": 37.619,
+    "long": -122.375
+  },
+```
 
 The next step in data collection was finding a live airplane API (preferably free) that had the information I needed, which was departure airport, arrival airport, ICAO code, and to be able to filter flights by time frame. For this I chose the OpenSky Network Live API (https://openskynetwork.github.io/opensky-api/)
 
@@ -42,7 +53,11 @@ function getTimes(){
 
 ```
 
-The next step is getting San Fransico International's JSON departure data from the OpenSky network in that time frame (getData()). The request to OpenSky only returns the ICAO code for the arrival destination of each flight. That's when can search through our airport_data.js file to find the corresponding coordinates, city and country. Finally, this function stores each flight's data in an array called routes. The array contains each flights departure/arrival coordinates and the arrival airport's name, city and country.
+The next step is getting San Fransico International's JSON departure data from the OpenSky network in that time frame (getData(ICAO='KSFO')). The request to OpenSky only returns the ICAO code for the arrival destination of each flight. That's when we can search through the data created in our data collection step to find the corresponding coordinates, city and country. The data for each flight is stored in an array called routes. 
+
+Now the exciting part, we get to draw the routes. The first step is to rotate the globe to the destination airport, KSFO. 
+
+
 
 
 
