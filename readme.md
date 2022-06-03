@@ -55,14 +55,39 @@ function getTimes(){
 
 The next step is getting San Fransico International's JSON departure data from the OpenSky network in that time frame (getData(ICAO='KSFO')). The request to OpenSky only returns the ICAO code for the arrival destination of each flight. That's when we can search through the data created in our data collection step to find the corresponding coordinates, city and country. The data for each flight is stored in an array called routes. 
 
-Now the exciting part, we get to draw the routes. The first step is to rotate the globe to the destination airport, KSFO. 
+Now the exciting part, drawing the routes. The first step is to rotate the globe to the departure, KSFO. 
+
+``` js
+// 600ms transition to new view point
+function rotateGlobe(lat=37.619, long=-122.375){
+  globe.pointOfView({lat: lat, lng:long, altitude: 2.2}, 600)
+}
+
+```
+Second, we draw the routes on our globe, along with a label for the departure airport
+``` js
+const colors = [['#CCF381', '#4831D4'], ['#9400D3','#FFAA33'], ['#89ABE3FF', '#EA738DFF']]
+function setRoutes(routes, ICAO){
+    newLabel = [{lat: DATA[ICAO].lat, lng: DATA[ICAO].long, label: DATA[ICAO].name + " ("+ ICAO + ")"}]
+    globe.arcColor(colors[Math.floor(Math.random() * colors.length)])
+    globe.labelsData(newLabel)
+    globe.arcsData(routes);
+}
+```
+Last, we attach a label to each route showing the arrival airport's information
+``` js
+function showRoute(arc, prevarc){
+    if (arc != null){
+        globe.arcLabel(["→ " + arc.arrCity + ", " + arc.arrCountry + " (" + arc.arrICAO + ")"])
+    }
+}
+```
+
+And that's it! There are more minutiae such as styling the globe/wesbite, parsing the data, offsets, attaching event listeners etc., but that can all be explored in the /src/ folder
 
 
 
 
-
-
-As soon as a user searches for an airport, the getTimes() function,
 
 ## Running on your local network
 Download [Node.js](https://nodejs.org/en/download/).
