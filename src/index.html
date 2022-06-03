@@ -17,29 +17,39 @@
     </head>
       
     <body style="overflow-x: hidden;">
+      
+
+      <!-- NAV BAR -->
+      <div class="nav_wrapper">
+            <a href="https://github.com/refrigerator18/WebGL_Airport_Departures" target=”_blank” id="about">
+              <img alt="github_logo" src="../static/github.png" id="githubLogo"><span id="readme">readme</span>
+            </a>
+      </div>
       <!-- GLOBE -->
       <div id="globeViz"></div>
 
       <!-- TEXT -->
       <div class="text">
-        <div class = "title">Live Flight Departures</div>
+        <div class = "title">Live Airport Departures</div>
         <div class = "input">
           <form id="form1">
-            <input type="text" id="fICAO" name="fICAO" maxlength="4" placeholder="Enter 4-digit ICAO Code" oninput="let p = this.selectionStart; this.value = this.value.toUpperCase();this.setSelectionRange(p, p);" >
+            <input type="text" id="fICAO" name="fICAO" maxlength="4" autocomplete="off" placeholder="Enter 4-digit ICAO Code" oninput="let p = this.selectionStart; this.value = this.value.toUpperCase();this.setSelectionRange(p, p);" >
           </form>
         </div>
-        <button type="button" id ="bICAO" form ="form1" value="submit">Submit</button>
+        <button type="button" id ="bICAO" form ="form1" value="submit">View flights</button>
         <div class="info">
             <a href="https://en.wikipedia.org/wiki/List_of_airports_by_ICAO_code:_A" target=”_blank”>https://en.wikipedia.org/wiki/List_of_airports_by_ICAO_code:_A</a><br><br>
             Examples: <br>
-            &emsp;KMIA - Miami International <br>
-            &emsp;EGLL - London Heathrow <br>
-            &emsp;RJTT - Tokyo International <br>
-            &emsp;VHHH - Hong Kong International
+            &emsp;KLAX - Los Angeles International<br>
+            &emsp;EGLL - London Heathrow<br>
+            &emsp;RJTT - Tokyo International<br>
+            &emsp;LEMD - Madrid Barajas<br><br>
+
+            <span id="tip">*You can drag, scroll, and hover over the globe! </span>
+
         </div>
-
-
       </div>
+
       <!-- AIRPORT ICAO AND COORDS -->
       <script src="./airport_data.js" ></script>
       <script src="./globe.js"></script>
