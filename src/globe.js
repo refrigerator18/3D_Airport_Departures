@@ -8,7 +8,8 @@ const startAirport = 'CYYZ'
 var addInitialOffset = true
 var startColor = true
 
-const colors = [['#CCF381', '#4831D4'], ['#9400D3','#FFAA33'], ['#89ABE3FF', '#EA738DFF']]
+const colors = [['#CCF381', '#4831D4'], ['#D198C5FF' ,'#E0C568FF' ],['#89ABE3FF', '#EA738DFF'], ['#FDF5DF', '#F92C85'], 
+                ['#2BAE66FF', '#FCF6F5FF'], ['#9400D3','#FFAA33']]
 const globe = Globe()
     (document.getElementById('globeViz'))
     .globeImageUrl('//unpkg.com/three-globe/example/img/earth-dark.jpg')
