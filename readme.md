@@ -1,8 +1,6 @@
 # [flightmap.live](https://flightmap.live/)
 
-
-https://user-images.githubusercontent.com/57844356/171966558-74e3eb3d-9c1e-4e39-8758-a410fe3500cd.mov
-
+https://user-images.githubusercontent.com/57844356/174462290-6cc55406-075e-42ef-a245-b7ba17ada1e4.mov
 
 ## About
 A realtime visualization of the last 48 hours of airplane departures on a 3D interactive globe. This project was made using WebGL (ThreeJS), Javascript, HTML/CSS, airport data, and live airplane data via an API.
