@@ -37,7 +37,7 @@ getData(callback = setRoutes, ICAO=startAirport);
 // Function to get currentTime and currenTime - 48hrs in Unix time
 function getTimes(){
     currentTime = Math.floor(Date.now() / 1000)
-    prevTime = currentTime - (2 * 24 * 60 * 60)
+    prevTime = currentTime - (4 * 24 * 60 * 60)
     return [String(prevTime), String(currentTime)]
 }
 
