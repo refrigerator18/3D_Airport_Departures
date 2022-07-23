@@ -35,9 +35,11 @@ getData(callback = setRoutes, ICAO=startAirport);
 
 
 // Function to get currentTime and currenTime - 48hrs in Unix time
+// ***Data is backtracked by one month, due to issues with OpenSky Network
+// ***Will go back to live data as soon as possible
 function getTimes(){
-    currentTime = Math.floor(Date.now() / 1000)
-    prevTime = currentTime - (4 * 24 * 60 * 60)
+    currentTime = Math.floor(Date.now() / 1000) - 2630000
+    prevTime = currentTime - (2 * 24 * 60 * 60) 
     return [String(prevTime), String(currentTime)]
 }
 
